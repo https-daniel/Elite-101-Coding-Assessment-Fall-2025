@@ -52,16 +52,16 @@ def itemtron():
 
     # ok now i have all the options for genres and author, now the user can SEARCH FOR THE BOOK BASED ON AUTHOR OR GENRE!
 
-    search = input("Please search for a genre OR an author!")
+    search = input("Please search for a genre OR an author!: ")
     if search: # only run if typed something
         search = search.lower() # hints and tips
         book_found = []
         for book in library_books:
             if book["available"] == True:
-                if search in book["author"] or search in book["genre"]:
+                if search in book["author"].lower() or search in book["genre"].lower():
                     #adding to the book_found variable to print easier
-                    book_found.append(book)
-        if book_found:
+                    result = book_found.append(book)
+        if book_found == result:
             for book in book_found:
                 print(f'"{book["title"]}" by {book["author"]} ({book["genre"]})')
         else:
