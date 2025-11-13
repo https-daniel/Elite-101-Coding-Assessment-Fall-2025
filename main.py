@@ -57,9 +57,7 @@ def itemtron():
         search = search.lower() # hints and tips
         book_found = []
         for book in library_books:
-            if book["available"] == True:
-                if search in book["author"] or search in book["genre"]:
-                    #adding to the book_found variable to print easier
+            if book["available"] == True and (search in book["author"].lower() or search in book["genre"].lower()):
                     book_found.append(book)
         if book_found:
             for book in book_found:
